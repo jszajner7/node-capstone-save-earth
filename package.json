@@ -1,0 +1,24 @@
+{
+  "name": "node-capestone-save-earth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jszajner7/node-capstone-save-earth.git"
+  },
+  "author": "jeffszajner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jszajner7/node-capstone-save-earth/issues"
+  },
+  "homepage": "https://github.com/jszajner7/node-capstone-save-earth#readme",
+  "dependencies": {
+    "async": "~0.2.8",
+    "express": "^4.14.0",
+    "socket.io": "^1.4.8"
+  }
+}
