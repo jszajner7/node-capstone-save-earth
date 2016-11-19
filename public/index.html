@@ -1,10 +1,100 @@
-<!doctype html>
-<title>Chatroom</title>
-<meta charset="utf-8">
-
-<!-- JS -->
-<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-<script src="main.js"></script> 
-
-<input type="text">
-<div id="messages"></div>
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Time for Action!</title>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    
+    <body>
+        <header class="masthead">
+            <h1 class="masthhead-heading">Let's Keep This Space Ship Spinning</h1>
+        </header>
+        
+        <section class="introduction-section">
+            <h3>Time For Action!</h3>
+            
+            <p>According to the recent study done by the.This beutiful planet of ours will no longer be able to sustain life at the current
+            rate and way that it's recourses are being used by 2050 when the human population will hit 10 billion. Fossil Fuels and 
+            Animal Agriculure are the two industries that are the most responsibale for the depletion of the Earth's resources and the largest
+            contributors to Green House Gases. By moving away from our dependencies on these industries for food and fuel we will be able to reverse
+            global warming and have the resourses to keep spinning a lot longer and further into space.</p>
+            
+        </section>
+        
+<style>
+            
+ .list_wrap {  width: 95%; height: 400px; margin: 0 auto; }
+ 
+ .item_wrap {  display: inline-block; }
+ .item_data { padding: 4px; padding-left: 15px; padding-right: 15px; text-shadow: 0px 1px 0px grey;
+    background-color: white; color: aquamarine; border: 5px solid; border-radius: 5px; max-width: 15em; margin: 0 auto; }
+ 
+ .item_wrap header {  height: 150px; }
+ 
+ 
+ .co2-container { width: 25%; float: left; }
+ .ghg-container { width: 50%; }
+ .methane-container { width: 25%; float: right; }
+            
+</style>
+        
+  <div class="list_wrap">
+    
+    
+    <div class="item_wrap co2-container">
+        <header>hi</header>
+     <div class="item_data">
+        <h2>Total Co2 Emissions A Year</h2>
+        <form class="data-section">
+            <input id="all-items" type="text" placeholder="">
+            <!--//<button id="search-button" type="submit">Search</button>//-->
+        </form>
+        <section class="data-results">
+            <ul></ul>
+            <p class="error"></p>
+        </div>
+    </section>
+    </div><!-- . item_wrap - -->
+    
+    <div class="item_wrap ghg-container">
+      <div class="item_data">
+        <h2>Total Green House Gases A Year</h2>
+        <form class="data-section">
+            <input id="all-items" type="text" placeholder="">
+           <!--//<button id="search-button" type="submit">Search</button>//-->
+        </form>
+        <section class="data-results">
+            <ul></ul>
+            <p class="error"></p>
+        </div>
+      </section>
+    </div><!-- . item_wrap - -->
+    
+    <div class="item_wrap methane-container">
+        <header>hi</header>
+     <div class="item_data">
+         
+        <h2>Total Methane Emissions A Year</h2>
+        <form class="data-section">
+            <input id="all-items" type="text" placeholder="">
+            <!--<button id="search-button" type="submit">Search</button>-->
+        </form>
+        <section class="data-results">
+            <ul></ul>
+            <p class="error"></p>
+        </div>
+      </section>
+    </div><!-- . item_wrap - -->
+ </div><!-- . list_wrap - -->
+    
+        <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+        <script src="app.js"></script>
+         <script src="server.js"></script>
+        
+    </body>
+    
+    </html>
