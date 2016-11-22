@@ -18,7 +18,15 @@
   "homepage": "https://github.com/jszajner7/node-capstone-save-earth#readme",
   "dependencies": {
     "async": "~0.2.8",
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "mongodb": "^2.2.10",
+    "mongoose": "^4.6.1",
     "socket.io": "^1.4.8"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.0.2"
   }
 }

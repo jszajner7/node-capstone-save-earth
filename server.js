@@ -1,50 +1,111 @@
-//require socket IO, http package and express
-var socket_io = require('socket.io');
-var http = require('http');
+/* STEP 1 - requiering external resourses*/
 var express = require('express');
-
+var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var config = require('./config');
 var app = express();
-
-//tell express to serve the public html pages
+var Item = require('./models/item');
+app.use(bodyParser.json());
 app.use(express.static('public'));
 
-//wrap the express app in an http server, allows socket to run alongside express
-var server = http.Server(app);
 
-//creates socket io server
-var io = socket_io(server);
 
-//on a new connection to the server (io.on) - prints client connected message
-//inside that, when a new socket connects (socket.on), prints the message and 'received'
-//socket.broadcast.emit - broadcasts received message to every socket BUT the one it received from
 
-io.on('connection', function (socket) {
-    
-    //logs the message
-    console.log('New client connected');
 
-    //sends a broadcast message to every socket but the one who made it occurr
-    socket.broadcast.emit('message', 'New user connected');
+/* STEP 2 - creating objects and constructors*/
+var runServer = function (callback) {
+    mongoose.connect(config.DATABASE_URL, function (err) {
+        if (err && callback) {
+            return callback(err);
+        }
 
-    
-    //when socket receives a 'message', logs that a new message was received, and broadcasts the message 
-    //to all connected sockets except the one who sent it
-    socket.on('message', function(message) {
-        console.log('Received message:', message);
-        socket.broadcast.emit('message',message);
+        app.listen(config.PORT, function () {
+            console.log('Listening on localhost:' + config.PORT);
+            if (callback) {
+                callback();
+            }
+        });
     });
+};
 
-    //watching for the 'typing' socket type, broadcast to all users that someone is typing
-    socket.on('typing',function() {
-        socket.broadcast.emit('message','Someone is typing');
+if (require.main === module) {
+    runServer(function (err) {
+        if (err) {
+            console.error(err);
+        }
     });
+};
 
-    //when a socket disconnects, logs it and sends a disconnected message to all other sockets
-    socket.on('disconnect', function(){
-        socket.broadcast.emit('message', 'Client Disonnected');
-        console.log('user disconnected');
+
+
+
+
+/* STEP 3 - api end points */
+app.get('/items', function (req, res) {
+    Item.find(function (err, items) {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        res.status(200).json(items);
     });
-  
 });
 
-server.listen(process.env.PORT || 8080);
+app.post('/items', function (req, res) {
+    Item.create({
+        name: req.body.name
+    }, function (err, item) {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        res.status(201).json(item);
+    });
+});
+
+app.put('/items/:id', function (req, res) {
+    Item.find(function (err, items) {
+        if (err) {
+            return res.status(404).json({
+                message: 'Item not found.'
+            });
+        }
+        Item.update({
+            _id: req.body.id
+        }, {
+            $set: {
+                name: req.body.name
+            }
+        }, function () {
+            res.status(201).json(items);
+        });
+    });
+});
+
+app.delete('/items/:id', function (req, res) {
+    Item.findByIdAndRemove(req.params.id, function (err, items) {
+        if (err)
+            return res.status(404).json({
+                message: 'Item not found.'
+            });
+
+        res.status(201).json(items);
+    });
+});
+
+app.use('*', function (req, res) {
+    res.status(404).json({
+        message: 'Not Found'
+    });
+});
+
+
+
+
+
+/* STEP 4 - server settings*/
+exports.app = app;
+exports.runServer = runServer;
+app.listen(process.env.PORT || 8888, process.env.IP);
