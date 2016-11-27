@@ -35,8 +35,8 @@ var createStorage = function() {
 var storage = createStorage();
 
 storage.add('total_co2_emissions');
-storage.add('total_green_house_emissions');
-storage.add('total_methane_emissions');
+// storage.add('total_green_house_emissions');
+// storage.add('total_methane_emissions');
 
 var app = express();
 app.use(express.static('public'));

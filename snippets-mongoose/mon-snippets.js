@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/');
+mongoose.connect('mongodb://admin:oliver71@ds019816.mlab.com:19816/node_capstone_save_earth');
 
 mongoose.connection.on('error', function(err) {
     console.error('Could not connect.  Error:', err);
