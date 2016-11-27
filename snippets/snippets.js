@@ -1,6 +1,5 @@
 var MongoClient = require('mongodb').MongoClient;
-
-MongoClient.connect('mongodb://localhost/snippets', function(err, db) {
+MongoClient.connect('mongodb://jeffszajner:oliver71@ds019816.mlab.com:19816/node_capstone_save_earth' , function(err, db) {
     if (err) {
         console.error(err);
         db.close();

@@ -12,7 +12,35 @@ app.use(express.static('public'));
 
 
 
-/* STEP 2 - creating objects and constructors*/
+/* #2 creating objects and constructors*/
+var Storage = {
+  add: function(name) {
+    var item = {
+      name: name,
+      id: this.setId
+    };
+    this.items.push(item);
+    this.setId += 1;
+    return item;
+  }
+};
+
+var createStorage = function() {
+  var storage = Object.create(Storage);
+  storage.items = [];
+  storage.setId = 1;
+  return storage;
+}
+
+var storage = createStorage();
+
+storage.add('total_co2_emissions');
+storage.add('total_green_house_emissions');
+storage.add('total_methane_emissions');
+
+var app = express();
+app.use(express.static('public'));
+
 var runServer = function (callback) {
     mongoose.connect(config.DATABASE_URL, function (err) {
         if (err && callback) {
@@ -36,11 +64,7 @@ if (require.main === module) {
     });
 };
 
-
-
-
-
-/* STEP 3 - api end points */
+/* #3 api end points */
 app.get('/items', function (req, res) {
     Item.find(function (err, items) {
         if (err) {
@@ -51,61 +75,39 @@ app.get('/items', function (req, res) {
         res.status(200).json(items);
     });
 });
-
-app.post('/items', function (req, res) {
-    Item.create({
-        name: req.body.name
-    }, function (err, item) {
-        if (err) {
-            return res.status(500).json({
-                message: 'Internal Server Error'
-            });
-        }
-        res.status(201).json(item);
-    });
+  
+app.post('/items', bodyParser, function(request, response) {
+  if (!('name' in request.body)) {
+    return response.sendStatus(400);
+  }
+  
+  var item = storage.add(request.body.name);
+  response.status(201).json(item);
 });
 
-app.put('/items/:id', function (req, res) {
-    Item.find(function (err, items) {
-        if (err) {
-            return res.status(404).json({
-                message: 'Item not found.'
-            });
-        }
-        Item.update({
-            _id: req.body.id
-        }, {
-            $set: {
-                name: req.body.name
-            }
-        }, function () {
-            res.status(201).json(items);
-        });
-    });
-});
-
-app.delete('/items/:id', function (req, res) {
-    Item.findByIdAndRemove(req.params.id, function (err, items) {
-        if (err)
-            return res.status(404).json({
-                message: 'Item not found.'
-            });
-
-        res.status(201).json(items);
-    });
-});
-
-app.use('*', function (req, res) {
-    res.status(404).json({
-        message: 'Not Found'
-    });
+app.delete('/items/:id/', bodyParser, function(request, response) {
+  if (!request.body) {
+    return response.sendStatus(400);
+  }
+  
+  var item = storage.delete(request.params.id);
+  response.status(200).json(item);
 });
 
 
+app.put('/items/:id/:name', bodyParser, function(request, response) {
+    //if there is a PUT, but no body, send a 400 error
+    if (!request.body) {
+        return response.sendStatus(400);
+    }
+    var id = request.params.id;
+    var name = request.params.name;
+    //gets the item request name, creates a new object, calls add method, sends response 200 'ok'
+    var item=storage.update(id,name);
+    response.status(200).json(item);
+});
 
-
-
-/* STEP 4 - server settings*/
+/* #4 server settings*/
 exports.app = app;
 exports.runServer = runServer;
-app.listen(process.env.PORT || 8888, process.env.IP);
+app.listen(8888, process.env.IP);

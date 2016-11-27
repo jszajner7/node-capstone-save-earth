@@ -45,6 +45,7 @@ h1 {
     color: darkturquoise;
     font-size: 60px;
     margin-bottom: 15px;
+    margin-top: 25px;
     text-shadow: 1px 1px 1px;
 }
 
@@ -53,37 +54,43 @@ h3{
     font-size: 50px;
 }
 
-.ghg-container {
-    
 
-}
-
-.co2-container{
-
-   
-}
 .intro {
     font-weight: bold;
     font-size:16px;
 }
-.methane-container {}
-.list_wrap {  width: 95%; height: 400px; margin: 0 auto; outline: 0px solid blue;  }
+
+/*.item_wrap {  width: 95%; height: 400px; margin: 0 auto; margin-top: 125px; outline: 0px solid blue;  }*/
  
- .item_wrap {  display: inline-block; outline: 0px solid red;  }
- .item_data { padding: 4px; padding-left: 15px; padding-right: 15px; text-shadow: 0px 1px 0px grey;
-    background-color: white; color: aquamarine; border: 5px solid; border-radius: 5px; max-width: 15em; margin: 0 auto; }
+/* .item_wrap {  display: inline-block; outline: 0px solid red;  }*/
  
- .item_wrap header {  height: 120px; }
+ /*.data_wrap { padding: 4px; padding-left: 50px; padding-right: 20px; text-shadow: 0px 1px 0px grey;*/
+ /*   background-color: white; color: red; border: 1px solid; border-radius: 5px; max-width: 15em; margin: 0 auto; }*/
+ 
+ .item_wrap header {  height: 220px; }
+ .title_wrap { margin-bottom: 30px; margin-top: 25px; }
+ .title_wrap h2 {color:blue;}
  
  
- .co2-container { width: 25%; float: left; margin-top:20px; }
- .ghg-container { width: 50%; margin-top: 30px;}
- .methane-container { width: 25%; float: right; margin-top:2px; }
+ .co2_container{ width: 25%; float-left:75px; margin-bottom:10px; }
+ .ghg_container { width: 25%; float-right:800px;  margin-bottom:50px;}
+ .methane_container { width: 25%; float-right:500px; margin-bottom:80px; }
+ 
+ .clockdiv { background-color: rgba(255,255,255,0.6); width: 50%; margin: 0 auto; margin-top:20;}
+ .clockdiv_wrap { background-color: rgba(255,255,255,0.4); width: 250px; margin: 0 auto; padding: 15px; color: black; line-height: 20px; border-radius: 5px; margin-top:30px; } 
+ 
+ h4 {
+     color:red;
+     margin-bottom:10px; 
+     font-size: 20px;
+ }
+
             
 
-.iframe_wrap { background-color: rgba(255,255,255,0.6); width: 800px; margin: 0 auto; margin-top: 125px; } 
-.text_wrap { background-color: rgba(255,255,255,0.4); width: 750px; margin: 0 auto; padding: 25px; color: black; line-height: 24px; border-radius: 5px; } 
-;
+.iframe_wrap { background-color: rgba(255,255,255,0.6); width: 800px; margin: 0 auto; margin-top: 400px; } 
+.text_wrap { background-color: rgba(255,255,255,0.4); width: 750px; margin: 0 auto; padding: 25px; color: black; line-height: 24px; border-radius: 5px; margin-bottom: 20px;} 
+
+
 
 .introduction-section h3 {
     padding-top: 20px;

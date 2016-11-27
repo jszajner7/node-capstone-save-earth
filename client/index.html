@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Time for Action!</title>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+   
 
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
@@ -16,8 +16,10 @@
     </header>
 
     <section class="introduction-section">
-
-        <h3>Time For Action!</h3>
+    <div class= "title_wrap">
+         <h3>Time For Action!</h3>
+    </div>
+        
         
         <div class="text_wrap">
           <p class="intro">According to recent study's many scientists think that by 2050 when the human population will hit 10 billion this beautiful planet of ours will no longer be able to sustain life at the current rate that it's recourses are currently being used. Fossil Fuels and
@@ -26,15 +28,28 @@
         </div>
 
     </section>
+   
+    
+    <div class="clockdiv_wrap">
+      <h4>Count Down To 2050</h4>
+      
+    <div id ="clockdiv">
+         Days: <span class="days"></span><br>
+    Hours: <span class="hours"></span><br>
+    Minutes: <span class="minutes"></span><br>
+    Seconds: <span class="seconds"></span>
+    </div>
+    
+    </div>
 
 
-    <div class="list_wrap">
+    <div class="data_wrap">
 
 
-        <div class="item_wrap co2-container">
-            <header>Total Co2</header>
-            <div class="item_data">
-                <h2 style="color:blue;">Total Co2 Emissions A Year</h2>
+        <div class="co2_container">
+            <header>CO2</header>
+            <!--<div class="item_data">-->
+                <h2>Total Co2 Emissions A Year</h2>
                 <form class="data-section">
                     <input id="all-items" type="text" placeholder="">
                     <!--//<button id="search-button" type="submit">Search</button>//-->
@@ -47,9 +62,9 @@
         </div>
         <!-- . item_wrap - -->
 
-        <div class="item_wrap ghg-container">
-            <div class="item_data">
-                <h2 style="color:blue;">Total Green House Emissions A year</h2>
+        <div class="ghg_container">
+            <!--<div class="item_data">-->
+                <h2>Total Green House Emissions A year</h2>
                 <form class="data-section">
                     <input id="all-items" type="text" placeholder="">
                     <!--//<button id="search-button" type="submit">Search</button>//-->
@@ -62,12 +77,12 @@
         </div>
         <!-- . item_wrap - -->
 
-        <div class="item_wrap methane-container">
+        <div class="methane_container">
             <header>Total Methane</header>
 
-            <div class="item_data">
+            <!--<div class="item_data">-->
 
-                <h2 style="color:blue;">Total Methane Emissions A Year</h2>
+                <h2>Total Methane Emissions A Year</h2>
                 <form class="data-section">
                     <input id="all-items" type="text" placeholder="">
                     <!--<button id="search-button" type="submit">Search</button>-->
@@ -87,19 +102,12 @@
       <iframe width="600" height="513" frameborder="0" scrolling="no" src="https://www.climatecentral.org/wgts/EarthDay2015/map.html?utm_source=ext&utm_medium=embed&utm_campaign=EarthDay2015"></iframe> 
     </div>
     
-    <div class="iframe_countdown_wrap">
-    <iframe  width="100%" height="600" frameborder="0"src="https://www.powr.io/plugins/countdown-timer/view?unique_label=b4f7a3c5_1479782881133&external_type=iframe"></iframe>
-    </div>
-   
-       <!--<iframe src="https://kstateome.github.io/canvas-countdown-clock/dark_countdown.html"-->
-       <!-- width="100%"-->
-       <!-- height="180"-->
-       <!-- style="border:0;"-->
-       <!-- name="countdownWidget"></iframe>-->
         
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="app.js"></script>
     <script src="server.js"></script>
+    
     
     
 </body>
