@@ -28,7 +28,7 @@ General styles (General Module, wrapping around the modules bellow)
 */
 
 html {
-    background: rgba(0, 0, 0, 0) url("../client/images/earth3.gif") no-repeat center center fixed;
+    background: rgba(0, 0, 0, 0) url("..//images/earth3.gif") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -64,19 +64,25 @@ h3{
  
 /* .item_wrap {  display: inline-block; outline: 0px solid red;  }*/
  
- /*.data_wrap { padding: 4px; padding-left: 50px; padding-right: 20px; text-shadow: 0px 1px 0px grey;*/
- /*   background-color: white; color: red; border: 1px solid; border-radius: 5px; max-width: 15em; margin: 0 auto; }*/
+ .item_data_wrap { padding: 4px; padding-left: 15px; padding-right: 25px; margin-bottom:50px; text-shadow: 0px 1px 0px grey;
+ height: 350px; position: relative; margin: 0px auto;
+    /*background-color: blue; color: red; border: 1px solid; border-radius: 5px; */
+ }
  
- .item_wrap header {  height: 220px; }
+ .item_wrap header { height: 220px; }
  .title_wrap { margin-bottom: 30px; margin-top: 25px; }
- .title_wrap h2 {color:blue;}
+ .title_wrap h2 {color: blue;}
  
  
- .co2_container{ width: 25%; float-left:75px; margin-bottom:10px; }
- .ghg_container { width: 25%; float-right:800px;  margin-bottom:50px;}
- .methane_container { width: 25%; float-right:500px; margin-bottom:80px; }
+ .item_data_co2 { width: 40%; height: 50%; position: absolute; left: 15px; bottom: 20px; height: 200px; outline: 0px solid red;  }
+ .item_data_ghg { width: 25%; margin: 0px auto; margin-top: 50px; height: 200px; }
+ .item_data_methane { width: 35%; position: absolute; right: 15px; bottom: 20px; height: 200px; outline: 0px solid red; }
  
- .clockdiv { background-color: rgba(255,255,255,0.6); width: 50%; margin: 0 auto; margin-top:20;}
+ .chart_wrap_a {background-color: rgba(0,0,255,0.4); width: 300px; padding: 15px; position: absolute; left: 65px; margin-top: 20px; text-align: center; }
+ .chart_wrap_a img { width: 250px; }
+ .chart_wrap_b {background-color: rgba(0,0,255,0.4); width: 375px; padding: 15px; position: absolute; right: 45px; margin-top: 20px; text-align: center; }
+ .chart_wrap_b img { width: 350px; }
+ .clockdiv { background-color: rgba(255,255,255,0.6); width: 50%; margin: 0 auto; margin-top: 20px;}
  .clockdiv_wrap { background-color: rgba(255,255,255,0.4); width: 250px; margin: 0 auto; padding: 15px; color: black; line-height: 20px; border-radius: 5px; margin-top:30px; } 
  
  h4 {
@@ -87,7 +93,7 @@ h3{
 
             
 
-.iframe_wrap { background-color: rgba(255,255,255,0.6); width: 800px; margin: 0 auto; margin-top: 400px; } 
+.iframe_wrap { background-color: rgba(255,255,255,0.6); width: 800px; margin: 0 auto; margin-top: 500px; } 
 .text_wrap { background-color: rgba(255,255,255,0.4); width: 750px; margin: 0 auto; padding: 25px; color: black; line-height: 24px; border-radius: 5px; margin-bottom: 20px;} 
 
 

@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <!--<img src="..//images/earth3.gif">-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Time for Action!</title>
@@ -22,7 +23,7 @@
         
         
         <div class="text_wrap">
-          <p class="intro">According to recent study's many scientists think that by 2050 when the human population will hit 10 billion this beautiful planet of ours will no longer be able to sustain life at the current rate that it's recourses are currently being used. Fossil Fuels and
+          <p class="intro">According to recent study's many scientists believe that by 2050 when the human population will hit 10 billion this beautiful planet of ours will no longer be able to sustain life at the current rate that it's recourses are currently being used. Fossil Fuels and
             Animal Agriculure are the two industries that are the most responsibale for the depletion of the Earth's resources and the largest contributors to Green House Gases. By moving away from our dependencies on these industries for food and fuel
             we will be able to reverse global warming and have the resourses to keep spinning a lot longer and further into space.</p>
         </div>
@@ -43,62 +44,67 @@
     </div>
 
 
-    <div class="data_wrap">
+     <div class="item_data_wrap">
 
 
-        <div class="co2_container">
+        <div class="item_data_co2">
             <header>CO2</header>
-            <!--<div class="item_data">-->
                 <h2>Total Co2 Emissions A Year</h2>
                 <form class="data-section">
                     <input id="all-items" type="text" placeholder="">
-                    <!--//<button id="search-button" type="submit">Search</button>//-->
+                    
                 </form>
-                <section class="data-results">
+        </div>
+         
+        <!-- . item_wrap - -->
+        
+               <!--show_co2_data        -->
+        <div class="data_results">
                     <ul></ul>
                     <p class="error"></p>
-            </div>
-            </section>
-        </div>
-        <!-- . item_wrap - -->
-
-        <div class="ghg_container">
-            <!--<div class="item_data">-->
+                 </div>   
+        <div class="item_data_ghg">
                 <h2>Total Green House Emissions A year</h2>
                 <form class="data-section">
                     <input id="all-items" type="text" placeholder="">
-                    <!--//<button id="search-button" type="submit">Search</button>//-->
+                   
                 </form>
-                <section class="data-results">
+        </div>
+        
+        <!-- . item_wrap - -->
+        
+               <!--show_ghg_data    -->
+        <div class="data_results">
                     <ul></ul>
                     <p class="error"></p>
-            </div>
-            </section>
+            
         </div>
-        <!-- . item_wrap - -->
-
-        <div class="methane_container">
+        <div class="item_data_methane">
             <header>Total Methane</header>
-
-            <!--<div class="item_data">-->
-
                 <h2>Total Methane Emissions A Year</h2>
                 <form class="data-section">
                     <input id="all-items" type="text" placeholder="">
-                    <!--<button id="search-button" type="submit">Search</button>-->
+                   
                 </form>
-                <section class="data-results">
+                
+                <!--show_methane_data                -->
+             <div class="data_results">
                     <ul></ul>
                     <p class="error"></p>
-            </div>
-            </section>
+                </div>    
+                 
         </div>
+        
         <!-- . item_wrap - -->
-    </div>
+    <!--</div>-->
     <!-- . list_wrap - -->
     
-    
+     <div class="chart_wrap_a"><img src="../images/global_emissions_sector_2015.png" /></div>
+     
+     <div class="chart_wrap_b"><img src="../images/livestock_pie_chart.jpg" /></div>
+     
     <div class="iframe_wrap">
+        
       <iframe width="600" height="513" frameborder="0" scrolling="no" src="https://www.climatecentral.org/wgts/EarthDay2015/map.html?utm_source=ext&utm_medium=embed&utm_campaign=EarthDay2015"></iframe> 
     </div>
     
@@ -111,5 +117,160 @@
     
     
 </body>
+
+
+<!-- Handlebars templates -->
+<script id="item_list_template" type="text/x-handlebars-template">
+<ul class="item_list">
+    {{#each items}}
+    <li data-id="{{ id }}{{ _id }}">
+        <div class="display">
+            <span class="name">{{name}}</span>
+        //     <div class="delete">
+        //         <a href="#" class="delete-item" aria-label="Delete item">
+        //             <i class="fa fa-times" aria-hidden="true"></i>
+        //         </a>
+        //     </div>
+        // </div>
+        // <form class="edit-item-form" hidden>
+        //     <input type="text" name="edit-item-input"
+        //         title="Edit item">
+            
+        // </form>
+    </li>
+    {{/each}}
+</ul>
+</script>
+
+<!-- JS -->
+<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.js"></script>
+<script>
+
+var dataList = function() {
+    this.items = [];
+    this.itemList = $('.item-list');
+    this.itemListTemplate = Handlebars.compile($("#item-list-template").html());
+    // this.form = $('.add-item-form');
+    this.form.submit(this.onAddItemSubmit.bind(this));
+    this.input = $('#item-input');
+    this.main = $('.main');
+    // this.main.on('dblclick', 'li',
+    //              this.onEditItemClicked.bind(this));
+    // this.main.on('submit', '.edit-item-form',
+    //              this.onEditItemSubmit.bind(this));
+    // this.main.on('focusout', 'li input',
+    //              this.onEditFocusOut.bind(this));
+    // this.main.on('click', 'li .delete-item',
+    //              this.onDeleteItemClicked.bind(this));
+    // this.getItems();
+};
+
+dataList.prototype.onAddItemSubmit = function(event) {
+    event.preventDefault();
+    var value = this.input.val().trim();
+    if (value != '') {
+        this.addItem(value);
+    }
+    this.form[0].reset();
+};
+
+dataList.prototype.onEditItemClicked = function(event) {
+    event.preventDefault();
+    var item = $(event.target).parents('li');
+    var display = item.children('.display');
+    var form = item.children('form');
+    var input = form.children('input');
+    var name = display.children('.name');
+    form.attr('hidden', null);
+    input.focus();
+    input.val(name.text());
+    display.hide();
+};
+
+dataList.prototype.onEditItemSubmit = function(event) {
+    event.preventDefault();
+    var input = $(event.target).children('input');
+    input.blur();
+};
+
+dataList.prototype.onEditFocusOut = function(event) {
+    var item = $(event.target).parents('li');
+    var id = item.data('id');
+    var display = item.children('.display');
+    var form = item.children('form');
+    var input = form.children('input');
+    var name = display.children('.name');
+    var value = input.val().trim();
+    if (value != '') {
+        this.editItem(id, value);
+        name.text(value);
+    }
+    form.attr('hidden', true);
+    display.show();
+    event.preventDefault();
+};
+
+dataList.prototype.onDeleteItemClicked = function(event) {
+    var id = $(event.target).parents('li').data('id');
+    this.deleteItem(id);
+};
+
+dataList.prototype.getItems = function() {
+    var ajax = $.ajax('/items', {
+        type: 'GET',
+        dataType: 'json'
+    });
+    ajax.done(this.onGetItemsDone.bind(this));
+};
+
+dataList.prototype.addItem = function(name) {
+    var item = {'name': name};
+    var ajax = $.ajax('/items', {
+        type: 'POST',
+        data: JSON.stringify(item),
+        dataType: 'json',
+        contentType: 'application/json'
+    });
+    ajax.done(this.getItems.bind(this));
+};
+
+dataList.prototype.deleteItem = function(id) {
+    var ajax = $.ajax('/items/' + id, {
+        type: 'DELETE',
+        dataType: 'json'
+    });
+    ajax.done(this.getItems.bind(this));
+};
+
+dataList.prototype.editItem = function(id, name) {
+    var item = {'name': name, 'id': id};
+    var ajax = $.ajax('/items/' + id, {
+        type: 'PUT',
+        data: JSON.stringify(item),
+        dataType: 'json',
+        contentType: 'application/json'
+    });
+    ajax.done(this.getItems.bind(this));
+};
+
+dataList.prototype.onGetItemsDone = function(items) {
+    this.items = items;
+    this.updateItemsView();
+};
+
+dataList.prototype.updateItemsView = function() {
+    var context = {
+        items: this.items
+    };
+    var items_results = $(this.item_results_template(context));
+    this.item_results.replaceWith(items_resultsList);
+    this.itemL_results = item_results;
+};
+
+$(document).ready(function() {
+    var app = new dataList();
+});
+</script>
 
 </html>
