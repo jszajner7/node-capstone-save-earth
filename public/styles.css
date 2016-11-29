@@ -82,6 +82,11 @@ h3{
  .chart_wrap_a img { width: 250px; }
  .chart_wrap_b {background-color: rgba(0,0,255,0.4); width: 375px; padding: 15px; position: absolute; right: 45px; margin-top: 20px; text-align: center; }
  .chart_wrap_b img { width: 350px; }
+ .chart_wrap_c {background-color: rgba(0,0,255,0.4); width: 500px; padding: 15px; position: absolute; left: 65px; margin-top: 60px; text-align: center; }
+ .chart_wrap_c img { width: 440px; }
+ .chart_wrap_d {background-color: rgba(0,0,255,0.4); width: 450px; padding: 15px; position: absolute; right: 95px; margin-top: 60px; text-align: center; }
+ .chart_wrap_d img { width: 400px; }
+ 
  .clockdiv { background-color: rgba(255,255,255,0.6); width: 50%; margin: 0 auto; margin-top: 20px;}
  .clockdiv_wrap { background-color: rgba(255,255,255,0.4); width: 250px; margin: 0 auto; padding: 15px; color: black; line-height: 20px; border-radius: 5px; margin-top:30px; } 
  
