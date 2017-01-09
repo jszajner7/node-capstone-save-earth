@@ -77,15 +77,15 @@ initializeClock('clockdiv', deadline);
   //     ]
   // };
 
-  // function getRecentStatusUpdates(callbackFn) {
-  //     setTimeout(function(){ callbackFn(MOCK_STATUS_UPDATES)}, 100);
-  // }
+  function getRecentStatusUpdates(callbackFn) {
+      setTimeout(function(){ callbackFn((MOCK_STATUS_UPDATES)}, 100);
+  }
 
   // this function stays the same when we connect
   // to real API later
-  function displayStatusUpdates(data) {
+  function displayStatusUpdates(data) { 
       for (index in data.statusUpdates) {
-          $('body').append(
+          $('.data_results').append(
               '<p>' + data.statusUpdates[index].text + '</p>');
       }
   }
@@ -98,4 +98,7 @@ initializeClock('clockdiv', deadline);
 
   $(function() {
       getAndDisplayStatusUpdates();
+      
+  })
+  
   })

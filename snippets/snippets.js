@@ -71,6 +71,7 @@ var create = function(name, content) {
     var query = {
         name: name
     };
+    
     collection.findOne(query, function(err, snippet) {
         if (!snippet || err) {
             console.error("Could not read snippet", name);
@@ -93,6 +94,7 @@ var update = function(name, content) {
     var update = {
         $set: {content: content}
     };
+    
 
     collection.findAndModify(query, null, update, function(err, result) {
         var snippet = result.value;

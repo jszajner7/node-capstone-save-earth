@@ -24,7 +24,7 @@
         
         <div class="text_wrap">
           <p class="intro">According to recent study's many scientists believe that by 2050 when the human population will hit 10 billion this beautiful planet of ours will no longer be able to sustain life at the current rate that it's recourses are currently being used. Fossil Fuels and
-            Animal Agriculure are the two industries that are the most responsibale for the depletion of the Earth's resources and the largest contributors to Green House Gases. By moving away from our dependencies on these industries for food and fuel
+            Animal Agriculure are the two industries that are the most responsible for the depletion of the Earth's resources and the largest contributors to Green House Gases. By moving away from our dependence on these industries for food and fuel
             we will be able to reverse global warming and have the resourses to keep spinning a lot longer and further into space.</p>
         </div>
 
@@ -47,7 +47,7 @@
      <div class="item_data_wrap">
 
 
-        <div class="item_data_co2">
+        <div class="co2">
             <header>CO2</header>
                 <h2>Total Co2 Emissions A Year</h2>
                 <form class="data-section">
@@ -62,8 +62,9 @@
         <div class="data_results">
                     <ul></ul>
                     <p class="error"></p>
-                 </div>   
-        <div class="item_data_ghg">
+                 </div> 
+                 
+        <div class="green_house_gas">
                 <h2>Total Green House Emissions A year</h2>
                 <form class="data-section">
                     <input id="all-items" type="text" placeholder="">
@@ -79,7 +80,7 @@
                     <p class="error"></p>
             
         </div>
-        <div class="item_data_methane">
+        <div class="methane">
             <header>Total Methane</header>
                 <h2>Total Methane Emissions A Year</h2>
                 <form class="data-section">
@@ -119,7 +120,7 @@
     <script src="app.js"></script>
     <script src="server.js"></script>
     
-    
+     <script src="client.js"></script>
     
 </body>
 
@@ -268,9 +269,9 @@ dataList.prototype.updateItemsView = function() {
     var context = {
         items: this.items
     };
-    var items_results = $(this.item_results_template(context));
-    this.item_results.replaceWith(items_resultsList);
-    this.itemL_results = item_results;
+    var data_results = $(this.item_results_template(context));
+    this.data_results = replaceWith(items_resultsList);
+    this.data_results = item_results;
 };
 
 $(document).ready(function() {

@@ -11,6 +11,7 @@ mongoose.connection.once('open', function() {
        name: {type: String, unique: true},
        content: String
     });
+    
 
     var Snippet = mongoose.model('Snippet', snippetSchema);
 });
