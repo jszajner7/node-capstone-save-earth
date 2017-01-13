@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var config = require('./config');
 var app = express();
+var path = require('path');
 // 
 
 var co2 = require('./models/co2').co2
@@ -12,7 +13,9 @@ var methane = require('./models/methane').methane
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-
+app.get('/pie-chart', function (req,res) {
+   res.sendFile(path.join(__dirname, '/public/pie-chart.html'));
+});
 
 app.get('/co2',function (req,res) {
    co2.find({}).exec(function(error,result) {
