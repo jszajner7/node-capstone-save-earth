@@ -4,17 +4,23 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var config = require('./config');
 var app = express();
-var path = require('path');
 // 
 
 var co2 = require('./models/co2').co2
 var green_house = require('./models/green_house_gas').green_house_gas
 var methane = require('./models/methane').methane
+var pie_chart = require('./public/pie-chart.html').pie-chart
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-app.get('/pie-chart', function (req,res) {
-   res.sendFile(path.join(__dirname, '/public/pie-chart.html'));
+
+app.get('/pie_chart.html', function(req,res){
+    co2.find({}).exec(function(error,result) {
+       console.log(error);
+       console.log(result);
+     
+      res.send(result); 
+    });
 });
 
 app.get('/co2',function (req,res) {
@@ -167,4 +173,5 @@ if (require.main === module) {
 /* #4 server settings*/
 exports.app = app;
 exports.runServer = runServer;
-app.listen(8888, process.env.IP);
+//app.listen(8888, process.env.IP);
+app.listen(8888,function() { console.log('Server running on port 8888')})
