@@ -78,7 +78,7 @@ initializeClock('clockdiv', deadline);
   // };
 
   function getRecentStatusUpdates(callbackFn) {
-      setTimeout(function(){ callbackFn((MOCK_STATUS_UPDATES)}, 100);
+      setTimeout(function(){ callbackFn(MOCK_STATUS_UPDATES)}, 100);
   }
 
   // this function stays the same when we connect
@@ -101,4 +101,4 @@ initializeClock('clockdiv', deadline);
       
   })
   
-  })
+  }):

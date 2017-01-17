@@ -9,19 +9,11 @@ var app = express();
 var co2 = require('./models/co2').co2
 var green_house = require('./models/green_house_gas').green_house_gas
 var methane = require('./models/methane').methane
-var pie_chart = require('./public/pie-chart.html').pie-chart
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
 
-app.get('/pie_chart.html', function(req,res){
-    co2.find({}).exec(function(error,result) {
-       console.log(error);
-       console.log(result);
-     
-      res.send(result); 
-    });
-});
+
 
 app.get('/co2',function (req,res) {
    co2.find({}).exec(function(error,result) {
@@ -106,12 +98,14 @@ app.get('/methane', function (req,res) {
 
 var runServer = function (callback) {
     mongoose.connect('mongodb://admin:oliver71@ds019816.mlab.com:19816/node_capstone_save_earth' || config.DATABASE_URL, function (err) {
+
         if (err && callback) {
+            
             return callback(err);
         }
 
         app.listen(config.PORT, function () {
-            console.log('Listening on localhost:' + config.PORT);
+            console.log('Listening on localhost:' + config.PORT );
             if (callback) {
                 callback();
             }
@@ -173,5 +167,4 @@ if (require.main === module) {
 /* #4 server settings*/
 exports.app = app;
 exports.runServer = runServer;
-//app.listen(8888, process.env.IP);
-app.listen(8888,function() { console.log('Server running on port 8888')})
+// app.listen(8888, process.env.IP);
