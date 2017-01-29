@@ -43,7 +43,7 @@ body {
 
 h1 {
     color: darkturquoise;
-    font-size: 60px;
+    font-size: 80px;
     margin-bottom: 15px;
     margin-top: 25px;
     text-shadow: 1px 1px 1px;
@@ -51,7 +51,7 @@ h1 {
 
 h3{
     color: Red;
-    font-size: 50px;
+    font-size: 60px;
 }
 
 
@@ -74,21 +74,30 @@ h3{
  .title_wrap h2 {color: blue;}
  
  
- .item_data_co2 { width: 40%; height: 50%; position: absolute; left: 15px; bottom: 20px; height: 200px; outline: 0px solid red;  }
- .item_data_ghg { width: 25%; margin: 0px auto; margin-top: 50px; height: 200px; }
- .item_data_methane { width: 35%; position: absolute; right: 15px; bottom: 20px; height: 200px; outline: 0px solid red; }
+ /*.item_data_co2 { width: 40%; height: 50%; position: absolute; left: 15px; bottom: 20px; height: 200px; outline: 0px solid red;  }*/
+ /*.item_data_ghg { width: 25%; margin: 0px auto; margin-top: 50px; height: 200px; }*/
+ /*.item_data_methane { width: 35%; position: absolute; right: 15px; bottom: 20px; height: 200px; outline: 0px solid red; }*/
+ .canvas_wrap { position:relative; }
+ .chart { display: inline-block; vertical-align: top; width:200px; margin-right: 45px; margin-top: 100px;}
  
- .chart_wrap_a {background-color: rgba(0,0,255,0.4); width: 300px; padding: 15px; position: absolute; left: 65px; margin-top: 20px; text-align: center; }
- .chart_wrap_a img { width: 250px; }
- .chart_wrap_b {background-color: rgba(0,0,255,0.4); width: 375px; padding: 15px; position: absolute; right: 45px; margin-top: 20px; text-align: center; }
- .chart_wrap_b img { width: 350px; }
- .chart_wrap_c {background-color: rgba(0,0,255,0.4); width: 500px; padding: 15px; position: absolute; left: 65px; margin-top: 60px; text-align: center; }
- .chart_wrap_c img { width: 440px; }
- .chart_wrap_d {background-color: rgba(0,0,255,0.4); width: 450px; padding: 15px; position: absolute; right: 95px; margin-top: 60px; text-align: center; }
- .chart_wrap_d img { width: 400px; }
+ .middle_chart { margin-bottom:100px; }
+ 
+ .canvas_wrap_myChart { background-color: rgba(0,0,255,0.4); width: 300px; padding: 15px; margin-right: 50px;}
+ .first_chart { padding-top: 175px; }
+ 
+ .chart_myChart img { width: 100px; }
+ .canvas_wrap_otherChart {background-color: rgba(0,0,255,0.4); width: 100%; padding: 15px; position: relative; right: 45px;  top:0; text-align: center; padding-bottom: 100px}
+ 
+ .third_chart { padding-top: 175px; }
+ 
+ .chart_otherChart img { width: 100px; }
+ .canvas_wrap_thirdChart {background-color: rgba(0,0,255,0.4); width: 500px; padding: 15px; position: absolute; left: 65px; margin-top: 0; text-align: center; }
+ .chart_thirdChart img { width: 100px; }
+ .chart_data { font-weight: 900;}
+ 
  
  .clockdiv { background-color: rgba(255,255,255,0.6); width: 50%; margin: 0 auto; margin-top: 20px;}
- .clockdiv_wrap { background-color: rgba(255,255,255,0.4); width: 250px; margin: 0 auto; padding: 15px; color: black; line-height: 20px; border-radius: 5px; margin-top:30px; } 
+ .clockdiv_wrap { background-color: rgba(255,255,255,0.4); width: 250px; margin: 0 auto; padding: 15px; color: black; line-height: 25px; border-radius: 5px; margin-top:55px; } 
  
  h4 {
      color:red;
@@ -98,8 +107,8 @@ h3{
 
             
 
-.iframe_wrap { background-color: rgba(255,255,255,0.6); width: 800px; margin: 0 auto; margin-top: 500px; } 
-.text_wrap { background-color: rgba(255,255,255,0.4); width: 750px; margin: 0 auto; padding: 25px; color: black; line-height: 24px; border-radius: 5px; margin-bottom: 20px;} 
+.iframe_wrap { background-color: rgba(255,255,255,0.6); width: 600px; margin: 0 auto; margin-top: 500px; height: 120px;  } 
+.text_wrap { background-color: rgba(255,255,255,0.4); width: 750px; margin: 0 auto; padding: 25px; color: black; line-height: 23px; border-radius: 5px; margin-bottom: 20px;} 
 
 
 
@@ -108,133 +117,4 @@ h3{
     padding-bottom: 30px;
 }
 
- /*#all-items {*/
- /*   padding: 30px;*/
- /*   text-shadow: 0px 1px 0px grey;*/
- /*   background-color: white;*/
- /*   color: aquamarine;*/
- /*   border: 5px solid;*/
- /*   border-radius: 25px;*/
-/*}*/
-
-/*.data-container {*/
-/*    margin: 5em auto;*/
-/*    max-width: 600px;*/
-/*    padding: 80px;*/
-/*    text-align: center;*/
-/*    padding-top: 80px;*/
-/*    padding-bottom: 30px;*/
-/*    background-color: magenta;*/
-/*    border-radius: 10px;*/
-/*}*/
-
-
-
-/*#search-button {*/
-/*    border: 1px solid;*/
-/*    display: block;*/
-/*    cursor: pointer;*/
-/*    color: aqua;*/
-/*    font-family: arial;*/
-/*    padding: 6px 24px;*/
-/*    text-decoration: none;*/
-/*    text-shadow: 0px 1px 0px grey;*/
-/*    margin-top: 20px;*/
-/*    margin-top: 15px;*/
-/*    margin-left: auto;*/
-/*    margin-right: auto;*/
-/*    margin-bottom: auto;*/
-/*    padding: 5px;*/
-/*    background-color: white;*/
-/*    border-radius: 5px;*/
-/*    width: 100px;*/
-/*}*/
-
-/*.data-container {*/
-/*    margin-top: 200px;*/
-/*    display: inline-block;*/
-/*}*/
-
-/*.data-container ul {*/
-/*    width: 100%;*/
-/*    margin-left: auto;*/
-/*    margin-right: auto;*/
-/*    padding-top: 5px;*/
-/*}*/
-
-/*.data-container ul li {*/
-/*    width: 100%;*/
-/*    margin-left: 0.5%;*/
-/*    margin-right: 0.5%;*/
-/*    margin-bottom: 7rem;*/
-/*    display: inline-block;*/
-    /*background-image: url("../images/transparent.jpg");*/
-/*    padding: 2rem;*/
-/*    border-radius: 10px;*/
-/*    vertical-align: top;*/
-/*}*/
-
-/*.data-container ul li h2 {*/
-/*    color: red;*/
-/*    font-family: sans-serif;*/
-/*    font-size: 1rem;*/
-/*    padding-bottom: 1rem;*/
-/*    max-height: 2.3rem;*/
-/*    overflow: hidden;*/
-/*}*/
-
-/*.data-container ul li h3 {*/
-/*    color: red;*/
-/*    font-style: italic;*/
-/*    font-size: 0.8rem;*/
-/*}*/
-
-/*.product-image {*/
-/*    width: 100%;*/
-/*    height: 12rem;*/
-/*    border-radius: 10px;*/
-/*    margin-top: 1rem;*/
-/*    margin-bottom: 1rem;*/
-/*    background-size: cover;*/
-/*    background-position: center center;*/
-/*}*/
-
-/*.product-details {*/
-/*    height: 5.5rem;*/
-/*    overflow: hidden;*/
-/*}*/
-
-/*.text_wrap {*/
-/*    color: black;*/
-/*    text-align: left;*/
-/*}*/
-
-
-/* ------------------------
-Header styles (Main Module)
-(all the style inside the < header > or < nav > tags)
-*/
-
-
-/*------------------------------
-Content styles (Main Module)
-(all the styles inside the < sections > or < aside > tags)
-*/
-
-
-/*-------------------------------------
-Footer styles (Main Module)
-(all the styles inside the < footer > tag)
-*/
-
-
-/*------------------------------------------------
-place all the desktop styles above this line
-Responsive styles
-(the very last module in the CSS, contains all the media queries and it is dealing with the compatibility with mobiles and tablets)
-place all the moblie tables styles belowthis line
-*/
-
-
-
-
+ 

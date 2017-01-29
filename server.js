@@ -105,6 +105,7 @@ var runServer = function (callback) {
         }
 
         app.listen(config.PORT, function () {
+            
             console.log('Listening on localhost:' + config.PORT );
             if (callback) {
                 callback();
