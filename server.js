@@ -49,53 +49,6 @@ app.get('/methane', function (req,res) {
  
   
 
-
-
-
-  
-
-
-
-
-
-
-
-  
-    
-
-
-
-
-
-
-/* #2 creating objects and constructors*/
-// var Storage = {
-//   add: function(name) {
-//     var item = {
-//       name: name,
-//       id: this.setId
-//     };
-//     this.items.push(item);
-//     this.setId += 1;
-//     return item;
-//   }
-// };
-
-// var createStorage = function() {
-//   var storage = Object.create(Storage);
-//   storage.items = [];
-//   storage.setId = 1;
-//   return storage;
-// }
-
-// var storage = createStorage();
-
-// storage.add('total_co2_emissions');
-
-// storage.add('total_green_house_emissions');
-
-// storage.add('total_methane_emissions');
-
 var runServer = function (callback) {
     mongoose.connect('mongodb://admin:oliver71@ds019816.mlab.com:19816/node_capstone_save_earth' || config.DATABASE_URL, function (err) {
 
